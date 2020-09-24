@@ -36,6 +36,7 @@ function fixName(name, id) {
 function inofication(id) {
 	err=""
 	$(id).removeClass('success')
+	$('i').remove()
 	$(id).addClass('error')
 	if(id=="#Name") err = "Ten khong bao gom so va ky tu dac biet"
 
@@ -50,12 +51,26 @@ function inofication(id) {
 function reset(id) {
 	$(id).removeClass('error')
 	$(id).addClass('success')
+	
+	$('i.success').remove()
 
-	id = id.toLowerCase()+'Help'
+	idHelp = id.toLowerCase()+'Help'
 	
 	// alert(id+ err)  // check id , alert
 
-	$(id).remove()
+	$(idHelp).remove()
+
+	$(id).after(`<i class="success fas fa-check"></i>`)
+	$('i.success').css({
+		'position': 'absolute',
+		'top': '33px',
+		'right': '11px',
+		'width': '20px',
+		'height':'20px',
+		'background': 'url("https://previews.123rf.com/images/rimmart/rimmart1910/rimmart191000290/132971810-green-check-mark-icon-checkmark-in-circle-for-checklist-tick-icon-green-colored-in-flat-style-vector.jpg") no-repeat',
+		'background-size':'cover',
+		'border-radius': '50%'
+	})
 	// $(id).html("")
 	// $(id).removeClass('error')
 }
