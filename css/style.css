@@ -1,0 +1,34 @@
+.container_window {
+    z-index: -1;
+    background: url('https://previews.123rf.com/images/nicolasmenijes/nicolasmenijes1505/nicolasmenijes150500658/40605587-3d-renderer-illustration-white-people-writing-sign-up-on-notebook-page-isolated-white-background.jpg') no-repeat;
+    background-size: cover;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+}
+.container {
+    width: 400px;
+    background: #fff;
+    padding-bottom: 50px;
+}
+.success {
+    border: 1px solid green;
+    background: lightgreen;
+}
+.form-group .error {
+    border: 1px solid red;
+    background: lightcoral;
+    z-index: -1;
+}
+.alert {
+    color: red !important;
+}
+
+input[class="error"][required] {
+    background: url('https://previews.123rf.com/images/mykub/mykub1902/mykub190200442/117044281-warning-icon-the-attention-icon-danger-symbol-alert-icon.jpg') no-repeat;
+    background-size: contain;
+    background-position: right;
+    /* background: transparent; */
+    opacity: 0.5;
+    z-index: 1;
+}
