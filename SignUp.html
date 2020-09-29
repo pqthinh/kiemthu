@@ -23,7 +23,7 @@
 
             <div class="form-group">
               <label for="Email">Email address</label>
-              <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" required  placeholder="Enter email">
+              <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" required  placeholder="Enter email" onblur="validate('#Email',isEmail())">
               <small id="emailHelp" class="form-text text-muted">EX: email@email.com</small>
             </div>
 
@@ -46,12 +46,12 @@
 
             <div class="form-group">
               <label for="Password">Password</label>
-              <input type="password" class="form-control" id="Password" aria-describedby="passHelp" required placeholder="Password">
+              <input type="password" class="form-control" id="Password" aria-describedby="passHelp" required placeholder="Password" onblur="validate('#Password',isPassword())">
               <small id="passHelp" class="form-text text-muted"mil.com>Must more than 6 character</small>
             </div>
             <div class="form-group">
               <label for="Re_Password">Confirm Password</label>
-              <input type="password" class="form-control" id="Re_Password" aria-describedby="repassHelp" required  placeholder="Confirm password">
+              <input type="password" class="form-control" id="Re_Password" aria-describedby="repassHelp" required  placeholder="Confirm password" onblur="validate('#Re_Password',checkRePassword())">
               <small id="passHelp" class="form-text text-muted"mil.com>Similar password</small>
             </div>
 

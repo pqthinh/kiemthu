@@ -3,23 +3,19 @@ $(document).ready(function() {
 		alert($("#Name").val())
 	})
 })
-
+// Check Fullname
 function isName(){
-	const reg = /^[a-zA-Z ]+$/
-	return reg
+	const reg = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~0-9]/
+	id="#Name"
+	name = $(id).val()
+	if(name=="") return false
+	if(!reg.test(name)) {
+		fixName(name, id)
+		return true;
+	}
+	return false
 }
 
-function validate(id, reg) {
-    name = $(id).val()
-    
-    if(reg.test(name)) {
-	  fixName(name, id)
-	  reset(id)
-      return 1
-	}
-	inofication(id)
-	return 0
-}
 function fixName(name, id) {
 	dname = name;
 	ss = dname.split(' ')
@@ -33,13 +29,51 @@ function fixName(name, id) {
 
 	$(id).val(dname)
 }
+
+// Check Email // lib js
+
+function isEmail() {
+	id= "#Email"
+	return document.querySelector(id).validity.valid
+}
+
+function isPassword() {
+	id='#Password'
+	pass = $(id).val()
+	if(pass.length>=6) return true;
+	return false;
+}
+
+function checkRePassword() {
+	id='#Re_Password'
+	repass = $(id).val()
+	pass = $('#Password').val()
+	if(isPassword()) {
+		if(pass==repass) return true;
+	}
+	return false;
+}
+
+function validate(id, condition) {
+    
+    if(condition) {
+	  reset(id)
+      return 1
+	}
+	inofication(id)
+	return 0
+}
+
 function inofication(id) {
 	err=""
 	$(id).removeClass('success')
 	$('i').remove()
 	$(id).addClass('error')
 	if(id=="#Name") err = "Ten khong bao gom so va ky tu dac biet"
-
+	if(id == "#Email") err = "Email ban nhap khong dung dinh dang"
+	if(id=="#Password") err= "Mat khau phai co it nhat 6 ky tu"
+	if(id=="#Re_Password") err="Nhap khong khop hoac mat khau ko du 6 ky tu"
+	
 	idAlert = id.toLowerCase()+'Help'
 	$(idAlert).remove()
 
